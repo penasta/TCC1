@@ -1,0 +1,15 @@
+relatorio parcial:
+aprofundar na metodologia da proposta
+
+continuação da proposta
+
+pegar o documento; incrementar para chegar no relatório parcial
+
+Pontos:
+falar mais sobre vetorização:
+- explicar o que está por trás da vetorização
+- contextualização da PLN:
+- limpeza dos textos; remoção de stopwords; -> figuras
+- falar sobre a dimensão dos vetores -> 300
+
+explicar melhor os métodos de agrupamento, com um pouco mais de teoria

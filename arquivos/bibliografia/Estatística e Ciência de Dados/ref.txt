@@ -1,0 +1,6 @@
+@book{morettin,
+  title={Estatística e Ciência de Dados},
+  author={Pedro A. Morettin and Julio M. Singer},
+  publisher={LTC},
+  year={2021}
+}

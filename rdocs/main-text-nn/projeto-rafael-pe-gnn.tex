@@ -1,0 +1,478 @@
+
+%%%
+% TIPO DE DOCUMENTO E PACOTES ----
+%%%%
+\documentclass[12pt, a4paper, twoside]{article}
+\usepackage[left = 3cm, top = 3cm, right = 2cm, bottom = 2cm]{geometry}
+
+
+
+%%%\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb}
+\numberwithin{equation}{subsection} %subsection
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage{titletoc,titlesec}
+\usepackage{setspace}
+\usepackage{indentfirst}
+%\usepackage{natbib}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+%\usepackage[brazilian,hyperpageref]{backref}
+%\usepackage[alf]{abntex2cite}
+\usepackage{multirow} % https://www.ctan.org/pkg/multirow
+\usepackage{float} % https://www.ctan.org/pkg/float
+\usepackage{booktabs} % https://www.ctan.org/pkg/booktabs
+\usepackage{enumitem} % https://www.ctan.org/pkg/enumitem
+\usepackage{quoting} % https://www.ctan.org/pkg/quoting
+\usepackage{epigraph}
+\usepackage{subfigure}
+\usepackage{anyfontsize}
+\usepackage{caption}
+\usepackage{adjustbox}
+\usepackage{bm}
+
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+
+\raggedbottom % https://latexref.xyz/_005craggedbottom.html
+
+
+% COMANDOS -----
+%%%%
+
+\newtheorem{teo}{Teorema}[section]
+\newtheorem{lema}[teo]{Lema}
+\newtheorem{cor}[teo]{Corolário}
+\newtheorem{prop}[teo]{Proposição}
+\newtheorem{defi}{Definição}
+\newtheorem{exem}{Exemplo}
+
+\newcommand{\titulo}{Research Project (Bachelor Dissertation) \\ PE-GNN}
+\newcommand{\autor}{Rafael de Acypreste}
+\newcommand{\orientador}{ Prof. Professora }
+\newcommand{\coorientador}{ Prof(a).  }
+
+
+
+\pagestyle{fancy}
+\fancyhf{}
+%\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+%C - Centro, L - Esquerda, R - Direita, O - impar, E - par
+\fancyhead[RO, LE]{\thepage}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
+\titlecontents{section}[0cm]{}{\bf\thecontentslabel\ }{}{\titlerule*[.75pc]{.}\contentspage}
+\titlecontents{subsection}[0.75cm]{}{\thecontentslabel\ }{}{\titlerule*[.75pc]{.}\contentspage}
+
+\setcounter{secnumdepth}{3}
+%\setcounter{tocdepth}{3}
+
+\DeclareCaptionFormat{myformat}{ \centering \fontsize{10}{12}\selectfont#1#2#3}
+\captionsetup{format=myformat}
+
+%%%
+%% INÍCIO DO DOCUMENTO 
+%%%%%%
+
+%% CAPA ----
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\begin{figure}[h!]
+	\centering
+		\includegraphics[scale = 0.8]{img/unb.png}
+	\label{fig:unb}
+\end{figure}
+{\bf Universidade de Brasília \\
+\bf Departamento de Estatística}
+\vspace{5cm}
+
+\setcounter{page}{0}
+\null
+\textbf{\titulo}
+\vspace{2.5cm}
+
+
+\vspace{0.2cm}
+\textbf{\autor}
+\end{center}
+\vspace{1.5cm}
+
+\begin{flushright}
+\begin{minipage}{7.5cm}
+\parbox[t]{7.5cm}{Projected submitted to the Department of Statistics at
+the University of Brasília, as part of the requirements to obtain the
+Bachelor's Degree in Statistics.}
+\end{minipage}
+\end{flushright}
+
+\vspace{5cm}
+
+\begin{center}
+{\bf{Brasília} \\ }
+\bf{2024}
+\end{center}
+\end{titlepage}
+
+
+%%% FOLHA DE ROSTO -----
+
+\thispagestyle{empty}
+
+\begin{center}
+\textbf{\autor} \\
+\vspace{5cm}
+\textbf{\titulo} \\
+\vspace{3cm}
+\small
+Orientador(a): \orientador \\
+%Coorientador(a): \coorientador
+\end{center}
+
+
+\vspace*{3cm}
+
+\begin{flushright}
+\begin{minipage}{7.5cm}
+ \parbox[t]{7.5cm}{Projected submitted to the Department of Statistics
+at the University of Brasília, as part of the requirements to obtain the
+Bachelor's Degree in Statistics.}
+\end{minipage}
+\end{flushright}
+
+\vspace{5cm}
+
+\begin{center}
+{\bf{Brasília} \\ }
+\bf{2024}
+\end{center}
+
+\newpage
+
+\pagenumbering{arabic}
+\setcounter{page}{2}
+\onehalfspacing
+
+
+
+
+\setlength{\parindent}{1.5cm}
+\setlength{\parskip}{0.2cm}
+\setlength{\intextsep}{0.5cm}
+
+\titlespacing*{\section}{0cm}{0cm}{0.5cm}
+\titlespacing*{\subsection}{0cm}{0.5cm}{0.5cm}
+\titlespacing*{\subsubsection}{0cm}{0.5cm}{0.5cm}
+\titlespacing*{\paragraph}{0cm}{0.5cm}{0.5cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+
+\pagenumbering{arabic}
+\setcounter{page}{3}
+
+\fancyhead[RE, LO]{\nouppercase{\emph\leftmark}}
+%\fancyfoot[C]{Departamento de Estatística}
+
+% SUMÁRIO
+%%%
+
+\tableofcontents
+
+\newpage
+
+
+% CONTEÚDO (AS SEÇÕES SAO SEPARADAS NO RMARKDOWN) ---
+%%%
+
+
+\section{Introduction}\label{introduction}
+
+Many sources of statistical information use geographical or, at least,
+potential geographical information. In some problems, considering a
+global measure under a homogeneous assumption is enough to reach
+reliable inferences. However, when variability can be traced by
+location, it is necessary to consider the spatial dependence of the
+data. In this case, global estimations can be biased and inefficient in
+inferring about local conditions\footnote{Some authors (Brunsdon;
+  Fotheringham; Charlton, 1996) distinct local and spatial pieces of
+  information. Local estimation aims to treat commonly non-linear
+  relations that differ along the feature space independently of
+  geographical information. LOWESS regression is a method to tackle
+  local variation.}. The evolution of diseases, housing price variation,
+or climate change are examples of problems that can be more accurately
+understood by considering spatial dependence. In those situations,
+multi-valued statistics are more suitable to represent the data.
+
+The main topic of this dissertation is tackling the problem of modeling
+geospatial data, represented by a graph. When tackling graph
+information, the first element to define is a graph. Mathematically, for
+every use of graphs, it is necessary to define accurately its structure,
+given by ``nodes'' (\(N\)), ``edges'' (\(E\))\footnote{The information
+  stored in nodes and edges is called node and edge embedings,
+  respectively (Prince, 2024, p. 243).}, and a graph (\(G(N, E)\)),
+properly speaking. In the real world, some topics can be naturally
+suited to graphs further than geospatial data. For example, social
+networks, where people are nodes and the relations between them are the
+edges. Given a protein environment, the nodes are representations of the
+amino acids and edges of the interaction between them. In observational
+studies, causal relations can be modeled by a ``directed acyclic graph''
+(Pearl, 2009), whose variables are nodes and causal-effect directions
+are represented by the edges.
+
+The traditional statistical approaches are unable to tackle spatial
+autocorrelation. It is very common for spatial variables to exhibit
+spatial non-stationarity (Brunsdon; Fotheringham; Charlton, 1996). Then,
+the most popular statistical models might give non-random residuals
+leading to wrong conclusions. In this context, Graph Neural Networks
+(GNN) have been applied to deal with this complex geographic
+information, where data used to be highly correlated (Klemmer; Safir;
+Neill, 2023, p. 2). The main feature of a GNN is to learn a
+representation of a set of graph-structured pieces of information.
+Moreover, the intuition in this learning process is to update the node
+representation based on its features and neighbor representations (Tang;
+Liao, 2022, pp. 41--3).
+
+GNNs are a class of neural networks that operate on graphs and are also
+known as deep learning on graphs, graph representation learning, or
+geometric representation learning (Wu \emph{et al.}, 2022a, p. vii).
+They are a widely adopted tool to represent connected structures and
+relations. This class of model deals with three graph data
+singularities: 1) variable topology; 2) variable size (network graphs
+may have billions of points, for example); 3) often, there graph is
+monolithic; thus, testing in new data is not always feasible (Prince,
+2024, p. 240).
+
+Therefore, large graphs with millions of nodes became intractable in the
+traditional frameworks, especially due to high computational demand in
+process nodes and edges relations, low parallelizability, given the
+multiplicity of interconnections between nodes, and inapplicability of
+deep learning methods like using samples of data in the learning process
+that could lose nodes interconnections (Cui \emph{et al.}, 2022, p. 18).
+Furthermore, graphs do not present regular structures like images or
+texts do. Consequently, well-defined neural network architectures such
+as convolutional or recurrent neural networks are not well suited to
+deal with graphs (Cui \emph{et al.}, 2022; Wu \emph{et al.}, 2022b).
+
+A GNN is a neural network that can represent geographical information
+and spatial dynamics. It can represent information like points of
+interest, traffic speed at a specific location, etc. (Klemmer; Safir;
+Neill, 2023). The first task is to find an adequate and accurate graph
+representation in low dimensions (Cui \emph{et al.}, 2022, p. 17). These
+representations should permit the identification of patterns,
+structures, and data generation processes for analysis and prediction.
+
+However, GNNs might be insufficient for modeling complex spatial
+effects. In a graph, there are two proximities of interest (Cui \emph{et
+al.}, 2022, p. 21): first-order proximity indicates the observed
+distance between two nodes; second-order proximity refers to the
+``context'' (neighbors) of the two nodes. Then, some task is to find a
+method to make graph embedding to tackle both proximities in a low
+dimensional space. In this context, Klemmer; Safir; Neill (2023)
+proposed the ``Positional Encoder Graph Neural Network'' (PE-GNN).
+
+A traditional couple of geographical references (latitude/longitude)
+usually is not the feature to input a GNN. Setting some k-neighborhood
+became a hyperparameter subject to exhausting tests. Therefore,
+discovering any latent variable --- probably a high-dimensional one ---
+from geographical coordinates might be more suitable for training a GNN
+(Klemmer; Safir; Neill, 2023, p. 3). PE-GNN consists of using a
+positional encoder for contextual embedding for a point in space, which
+is concatenated with other features in the GNN training process. Doing
+this, the prediction became more accurate, supported by the calculated
+spatial autocorrelation. Then, the graph information is presented
+jointly with the learned positional embeddings. It works with any GNN
+singular structure (Klemmer; Safir; Neill, 2023, pp. 1--2).
+
+This ability to transform dimensions of the geographical features
+constitutes a field of the so-called ``representation learning'', in
+which the main objective is ``{[}\ldots{]} to extract sufficient but
+minimal information from data'' (Zhao \emph{et al.}, 2022, p. 3). When
+done by a human, is also called ``feature engineering''. However, it is
+a high-cost process and expert-dependent. Then, one goal of deep
+learning --- and positional encoder in this case --- is to make
+representation learning more abstract, useful (Zhao \emph{et al.}, 2022,
+p. 4), and less human-dependent.
+
+A Convolutional Graph Neural Network (\emph{GCN} for short) is
+convolutional in the sense that each layer updates its parameters
+aggregating the node context (neighborhood) (Prince, 2024, p. 248).
+
+\section{Further study points}\label{further-study-points}
+
+ST (C, \(σ_{min}\) , \(σ_{max}\)) is a sinusoidal transformation. What
+are these \(\sigma\) about in Klemmer; Safir; Neill (2023)?
+
+\newpage
+
+\section{Objetives}\label{objetives}
+
+\subsection{General objective}\label{general-objective}
+
+Refactor PE-GNN model to include local clusters information.
+
+\subsection{Specific objectives}\label{specific-objectives}
+
+\begin{itemize}
+\item
+  \newpage
+\end{itemize}
+
+\section{Literature Review}\label{literature-review}
+
+\newpage
+
+\section{Methods}\label{methods}
+
+\newpage
+
+\section{Schedule}\label{schedule}
+
+The activities to be developed during 1/2024 are:
+
+\definecolor{midgray}{gray}{.5}
+         \begin{table}[H]
+         \centering
+         \footnotesize
+         \caption{Timeline}
+             \begin{tabular}{|l|c|c|c|c|c|} \hline
+                 \multirow{2}{*}{Activities} & \multicolumn{5}{c|}{1/2024} \\ \cline{2-6}
+                   & Mar & Apr & May & Jun & Jul \\ \hline
+
+              Linear Algebra revision     & \cellcolor{midgray} & \cellcolor{midgray} & \cellcolor{midgray} & \cellcolor{midgray} & \\ \hline
+
+              
+              Literature review about GNN architectures  & \cellcolor{midgray}  & \cellcolor{midgray} & \cellcolor{midgray} &  &  \\ \hline
+
+              Python advanced programming courses     & & \cellcolor{midgray} & \cellcolor{midgray} & \cellcolor{midgray} & \cellcolor{midgray} \\ \hline
+
+              Analysis of the startpoint dissertation  &  &  & \cellcolor{midgray}& \cellcolor{midgray} & \cellcolor{midgray}\\ \hline
+
+                Replication of the original paper and dissertation codes  &  &  &  & \cellcolor{midgray} & \cellcolor{midgray}\\ \hline
+
+              
+             Writing of the research proposal  & & & \cellcolor{midgray} & \cellcolor{midgray} & \cellcolor{midgray} \\ \hline
+
+                Incremental fine-tunings planning  & & & & & \cellcolor{midgray} \\ \hline
+
+                 Drawing um of the partial report   & & & & & \cellcolor{midgray} \\ \hline
+             \end{tabular}
+         \end{table}
+
+In the 2/2024 season, the activities are:
+
+\definecolor{midgray}{gray}{.5}
+         \begin{table}[H]
+         \centering
+         \footnotesize
+         \caption{Timeline}
+             \begin{tabular}{|l|c|c|c|c|c|} \hline
+                 \multirow{2}{*}{Activities} & \multicolumn{5}{c|}{2/2024} \\ \cline{2-6}
+                   & Aug & Sep & Oct & Nov & Dec \\ \hline
+               Adaptation of code to change functions and parameters and documentation    & \cellcolor{midgray} & \cellcolor{midgray} &\cellcolor{midgray} &\cellcolor{midgray} & \\ \hline
+                  Training and test of the model with distinct databases   &  &  &\cellcolor{midgray} &\cellcolor{midgray} & \\ \hline
+                   Drawing up of the new algorithms and mathematical models  &  &   &  &   & \\ \hline
+                  Model fine-tuning &  &   & \cellcolor{midgray} & \cellcolor{midgray} &\\ \hline
+                 Results and discussion sections writing    & & & \cellcolor{midgray} & \cellcolor{midgray} & \cellcolor{midgray} \\ \hline
+                  Model publication in the GitHub platform & \cellcolor{midgray} & \cellcolor{midgray} & \cellcolor{midgray} & \cellcolor{midgray} & \cellcolor{midgray}\\ \hline
+                 Monograph defense  & & & & & \cellcolor{midgray} \\ \hline
+             \end{tabular}
+         \end{table}
+
+\newpage
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{0}{1}
+\bibitem[\citeproctext]{ref-Fotheringham-GWR}
+BRUNSDON, Chris; FOTHERINGHAM, A. Stewart; CHARLTON, Martin E.
+\textbf{Geographically weighted regression: A method for exploring
+spatial nonstationarity}. {[}\emph{S. l.: s. n.}{]}, 1996. (, v. 4).
+vol. 28, p. 281--298 Available at:
+\href{https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1538-4632.1996.tb00936.x}{https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1538-4632.1996.tb00936.x.
+}
+
+\bibitem[\citeproctext]{ref-GNNBook-ch2-cui}
+CUI, Peng \emph{et al.} Graph representation learning. \emph{In}:
+\textbf{Graph neural networks: Foundations, frontiers, and
+applications}. Singapore: Springer Singapore, 2022. p. 17--26.
+
+\bibitem[\citeproctext]{ref-klemmer_positional_2023}
+KLEMMER, Konstantin; SAFIR, Nathan; NEILL, Daniel B. \textbf{Positional
+{Encoder} {Graph} {Neural} {Networks} for {Geographic} {Data}}. arXiv,
+2023. Available at:
+\href{http://arxiv.org/abs/2111.10144}{http://arxiv.org/abs/2111.10144.
+}Accessed at: 23 Dec. 2023.
+
+\bibitem[\citeproctext]{ref-pearl_causality_2009}
+PEARL, Judea. \textbf{{CAUSALITY}: {Models}, {Reasoning}, and
+{Inference}}. 2nd. ed. {[}\emph{S. l.}{]}: Cambridge University Press,
+2009. Available at:
+\href{http://bayes.cs.ucla.edu/BOOK-2K/}{http://bayes.cs.ucla.edu/BOOK-2K/.
+}Accessed at: 22 Feb. 2023.
+
+\bibitem[\citeproctext]{ref-prince2024}
+PRINCE, Simon J. D. \textbf{Understanding deep learning}. {[}\emph{S.
+l.}{]}: MIT Press, 2024. Available at:
+\href{http://udlbook.com}{http://udlbook.com. }
+
+\bibitem[\citeproctext]{ref-GNNBook-ch4-tang}
+TANG, Jian; LIAO, Renjie. Graph neural networks for node classification.
+\emph{In}: \textbf{Graph neural networks: Foundations, frontiers, and
+applications}. Singapore: Springer Singapore, 2022. p. 41--61.
+
+\bibitem[\citeproctext]{ref-GNNBook2022}
+WU, Lingfei \emph{et al.} \textbf{Graph neural networks: Foundations,
+frontiers, and applications}. Singapore: Springer Singapore, 2022a. p.
+725
+
+\bibitem[\citeproctext]{ref-GNNBook-ch3-wu}
+WU, Lingfei \emph{et al.} Graph neural networks. \emph{In}:
+\textbf{Graph neural networks: Foundations, frontiers, and
+applications}. Singapore: Springer Singapore, 2022b. p. 27--37.
+
+\bibitem[\citeproctext]{ref-GNNBook-ch1-zhao}
+ZHAO, Liang \emph{et al.} Representation learning. \emph{In}:
+\textbf{Graph neural networks: Foundations, frontiers, and
+applications}. Singapore: Springer Singapore, 2022. p. 3--15.
+
+\end{CSLReferences}
+
+
+%% CRONOGRAMA ----
+%%%
+
+
+
+
+%% REFERÊNCIAS ----
+
+%%\bibliography{}
+\end{document}

@@ -1,0 +1,8 @@
+https://srikarthiks.wordpress.com/wp-content/uploads/2016/07/t2-modern-information-retrieval.pdf
+
+@book{ricardo,
+  title={Modern information retrieval: the concepts and technology behind search},
+  author={Ricardo, Baeza-Yates and Berthier, Ribeiro-Neto},
+  publisher={New Jersey, USA: Addi-son-Wesley Professional},
+  year={2011}
+}

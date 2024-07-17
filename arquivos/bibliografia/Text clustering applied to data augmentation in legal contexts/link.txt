@@ -1,0 +1,3 @@
+https://paperswithcode.com/paper/text-clustering-applied-to-data-augmentation
+
+FREITAS, Lucas José Gonçalves et al. Text clustering applied to data augmentation in legal contexts. arXiv preprint arXiv:2404.08683, 2024.

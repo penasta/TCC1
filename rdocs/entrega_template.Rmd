@@ -35,7 +35,10 @@ always_allow_html: yes
   \textbf{Lista 1}} \\
 \vskip 5em
 {\Large
-  Prof. Dr. Joãozinho} \\
+  Prof. Dr. Leandro Tavares Correia} \\
+\vskip 1em
+{\Large
+  Orientadora: Profª. Drª. Thais Carvalho Valadares Rodrigues} \\
 \vskip 1em
 {\Large
   Aluno: Bruno Gondim Toledo} \\
@@ -44,7 +47,7 @@ always_allow_html: yes
   Matrícula: 15/0167636} \\
 \vskip 1em
 {\Large
-  Cálculo 1} \\
+  Trabalho de Conclusão de Curso 1 - TCC1} \\
 \vskip 1em
 {\Large
   1º/2024} \\
